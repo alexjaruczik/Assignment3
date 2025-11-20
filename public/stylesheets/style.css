@@ -2,7 +2,9 @@ body {
   padding: 50px;
   font: 14px "Arial", Helvetica, Arial, sans-serif;
 }
-
+p{
+  font: "Arial"
+}
 a {
   color: #00B7FF;
 }
