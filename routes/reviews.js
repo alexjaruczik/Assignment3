@@ -1,10 +1,12 @@
-let express = require('express');
-let router = express.Router();
-let mongoose = require('mongoose');
-let Review = require('../models/reviews');
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const Review = require('../models/reviews');
+console.log("Hello");
 
 router.get('/reviews',async(req,res,next)=>{
-    try
+    console.log("connected!");
+    try 
     {
         const ReviewList = await Review.find();
         console.log(ReviewList);
@@ -15,4 +17,5 @@ router.get('/reviews',async(req,res,next)=>{
         res.render
     }
 }
-)   
+)
+module.exports = router;

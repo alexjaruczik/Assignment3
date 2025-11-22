@@ -13,6 +13,8 @@ var app = express();
 
 // Testing DB connection :3
 mongoose.connect(DB.URI);
+useNewUrlParser: true;
+useUnifiedTopology: true;
 let mongoDB = mongoose.connection;
 mongoDB.on('error', console.error.bind(console, 'Connection error'));
 mongoDB.once('open',()=>{
@@ -28,12 +30,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // '..' is required to help route to and from app.js
-app.use(express.static(path.join(__dirname, '..', './public')));
-app.use(express.static(path.join(__dirname, '..', './node_modules')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-//app.use('/reviews', reviewRouter);
+app.use('/reviews', reviewRouter);
+
+app.use(express.static(path.join(__dirname, '..', './public')));
+app.use(express.static(path.join(__dirname, '..', './node_modules')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
