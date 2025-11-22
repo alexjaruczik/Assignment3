@@ -7,7 +7,7 @@ let mongoose = require('mongoose')
 let DB = require('./db')
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
-var reviewRouter = require('../routes/reviews');
+const reviewRouter = require('../routes/reviews');
 
 var app = express();
 
@@ -33,7 +33,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/reviews', reviewRouter);
+app.use('/', reviewRouter);
 
 app.use(express.static(path.join(__dirname, '..', './public')));
 app.use(express.static(path.join(__dirname, '..', './node_modules')));
