@@ -1,0 +1,34 @@
+<%-include ../Partials/header.ejs %>
+<%-include ../Partials/navbar.ejs %>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <form class="form" method="post">
+                <div class="form-group">
+                    <label for="reviewerTextField">Username</label>
+                    <input type="text" class="form-control" id="reviewerTextField" placeholder="Enter your username..." name="reviewer" required>
+                </div>
+                <div class="form-group">
+                    <label for="filmTextField">Film Title</label>
+                    <input type="text" class="form-control" id="filmTextField" placeholder="Enter the film title..." name="film" required>
+                </div>
+                <div class="form-group">
+                    <label for="ratingTextField">What do you rate the film? (1-5)</label>
+                    <input type="text" class="form-control" id="ratingTextField" placeholder="Enter your rating..." name="rating" required>
+                </div>
+                <div class="form-group">
+                    <label for="commentTextArea">Write more to your review (Optional)</label>
+                    <textarea type="text" class="form-control" id="commentTextArea" placeholder="Enter your a comment..." name="comment" required></textarea>
+                </div>
+                <br>
+                <button class="btn btn-primary" type="submit">
+                    Submit
+                </button>
+                <a href="/reviews" class="btn btn-warning">
+                    Cancel
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+<%-include ../Partials/footer.ejs %>

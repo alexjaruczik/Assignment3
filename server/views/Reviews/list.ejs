@@ -9,7 +9,7 @@
                     <th class="text-center col-2">Reviewer</th>
                     <th class="text-center col-3">Film</th>
                     <th class="text-center col-1">Rating</th>
-                    <th class="text-center col-6">Comment</th>
+                    <th class="text-center col-5">Comment</th>
                 </tr>
                 <!--a for loop to write out all of the reviews.-->
                 <% for(let count=0; count<ReviewList.length;count++) { %>
@@ -17,7 +17,7 @@
                     <th class="text-center col-2"><%= ReviewList[count].reviewer %></th>
                     <th class="text-center col-3"><%= ReviewList[count].film %></th>
                     <th class="text-center col-1"><%= ReviewList[count].rating %></th>
-                    <th class="text-center col-6"><%= ReviewList[count].comment %></th>
+                    <th class="text-center col-5"><%= ReviewList[count].comment %></th>
                 </tr>
                 <% } %>
             </table>

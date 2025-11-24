@@ -5,9 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 let mongoose = require('mongoose')
 let DB = require('./db')
-var indexRouter = require('../server/routes/index');
-var usersRouter = require('../server/routes/users');
-const reviewRouter = require('../server/routes/reviews');
+var indexRouter = require('../routes/index');
+var usersRouter = require('../routes/users');
+const reviewRouter = require('../routes/reviews');
 
 var app = express();
 
@@ -22,7 +22,7 @@ mongoDB.once('open',()=>{
 })
 
 // view engine setup
-app.set('views', path.join(__dirname, '..', './server/views'));
+app.set('views', path.join(__dirname, '..', './views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
@@ -35,8 +35,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', reviewRouter);
 
-app.use(express.static(path.join(__dirname,'../public')));
-app.use(express.static(path.join(__dirname,'../node_modules')));
+app.use(express.static(path.join(__dirname, '..', '../public')));
+app.use(express.static(path.join(__dirname, '..', '../node_modules')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
