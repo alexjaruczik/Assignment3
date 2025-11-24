@@ -9,8 +9,7 @@ router.get('/reviews', async(req, res, next)=>{
   try 
     {
         const ReviewList = await Review.find();
-        console.log(ReviewList);
-        res.render('reviews', { 
+        res.render('Reviews/list', { 
             title: 'HollywoodStar',
             ReviewList:ReviewList
         });
