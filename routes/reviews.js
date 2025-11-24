@@ -10,7 +10,10 @@ router.get('/reviews', async(req, res, next)=>{
     {
         const ReviewList = await Review.find();
         console.log(ReviewList);
-        res.render('reviews', { title: 'HollywoodStar' });
+        res.render('reviews', { 
+            title: 'HollywoodStar',
+            ReviewList:ReviewList
+        });
     }
     catch(err)
     {
