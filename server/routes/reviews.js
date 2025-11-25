@@ -6,7 +6,6 @@ console.log("Hello");
 
 //This reads from the database as a page, Read Operation
 router.get('/reviews', async(req, res, next)=>{
-  console.log(":3");
   try 
     {
         const ReviewList = await Review.find();
@@ -66,4 +65,22 @@ router.post('/reviews/add', async(req, res, next)=>{
     }
 });
 
+//This creates the page to edit a review, Update operation
+router.get('/reviews/edit/:id',async(req,res,next)=>{
+    try
+    {
+        const id = req.params.id;
+        const reviewToEdit = await Review.findById(id);
+        res.render("/reviews/edit",
+        {
+            title: 'HollywoodStar',
+            Review: reviewToEdit
+        });
+    }
+    catch(err)
+    {
+        console.log(err);
+        next(err);
+    }
+})
 module.exports = router;
