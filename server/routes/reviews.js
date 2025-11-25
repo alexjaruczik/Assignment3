@@ -71,7 +71,7 @@ router.get('/reviews/edit/:id',async(req,res,next)=>{
         
         const id = req.params.id;
         const reviewToEdit = await Review.findById(id);
-        res.render("reviews/edit",
+        res.render("Reviews/edit",
         {
             title: 'HollywoodStar',
             Review: reviewToEdit
