@@ -22,7 +22,7 @@
                     <th class="text-center col-1"><%= ReviewList[count].rating %></th>
                     <th class="text-center col-5"><%= ReviewList[count].comment %></th>
                     <th class="text-center col-1">
-                        <a href="/reviews/edit/<%= ReviewList[count]._id%>" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="/reviews/edit/<%=ReviewList[count]._id%>" class="btn btn-primary btn-sm">Edit</a>
                     </th>
                     <th class="text-center col-1">
                         <a href="/reviews/delete/<%= ReviewList[count]._id%>" class="btn btn-danger btn-sm">Delete</a>

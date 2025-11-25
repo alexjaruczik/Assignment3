@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const Review = require('../models/reviews');
-console.log("Hello");
 
 //This reads from the database as a page, Read Operation
 router.get('/reviews', async(req, res, next)=>{
@@ -69,9 +68,10 @@ router.post('/reviews/add', async(req, res, next)=>{
 router.get('/reviews/edit/:id',async(req,res,next)=>{
     try
     {
+        
         const id = req.params.id;
         const reviewToEdit = await Review.findById(id);
-        res.render("/reviews/edit",
+        res.render("reviews/edit",
         {
             title: 'HollywoodStar',
             Review: reviewToEdit
@@ -82,5 +82,42 @@ router.get('/reviews/edit/:id',async(req,res,next)=>{
         console.log(err);
         next(err);
     }
-})
+});
+
+//This route edits the review, Update operation
+router.post('/reviews/edit/:id',async(req,res,next)=>{
+    try
+    {
+        let id = req.params.id;
+        const updateReview = Review({
+            "_id":id,
+            "reviewer": req.body.reviewer,
+            "rating": req.body.rating,
+            "film": req.body.film,
+            "comment": req.body.comment
+        })
+        Review.findByIdAndUpdate(id, updateReview ).then(()=>{
+            res.redirect("/reviews")
+        })
+    }
+    catch(err)
+    {
+        console.log(err);
+        next(err);
+    }
+});
+// This deletes the review, Delete operation
+router.get('/reviews/delete/:id', async(req,res,next)=>{
+    try
+    {
+        let id = req.params.id;
+        Review.deleteOne({_id:id}).then(()=>{
+            res.redirect("/reviews")
+        })
+    }
+    catch {
+        console.log(err);
+        next(err);
+    }
+});
 module.exports = router;
