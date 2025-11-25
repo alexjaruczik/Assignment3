@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-
+require('dotenv').config()
 var app = require('./server/config/app');
 var debug = require('debug')('assignment3:server');
 var http = require('http');

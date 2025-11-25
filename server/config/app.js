@@ -8,18 +8,10 @@ let DB = require('./db')
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
 const reviewRouter = require('../routes/reviews');
-
+require("dotenv").config();
 var app = express();
-
 // Testing DB connection :3
-mongoose.connect(DB.URI);
-useNewUrlParser: true;
-useUnifiedTopology: true;
-let mongoDB = mongoose.connection;
-mongoDB.on('error', console.error.bind(console, 'Connection error'));
-mongoDB.once('open',()=>{
-  console.log('Connected to the MongoDB Database')
-})
+require("./db");
 
 // view engine setup
 app.set('views', path.join(__dirname, '..', './views'));

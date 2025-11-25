@@ -1,1 +1,2 @@
-server/config/db.js
+.env
+node_modules/
