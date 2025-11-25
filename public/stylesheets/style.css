@@ -1,0 +1,15 @@
+body {
+  padding: 0px;
+  font: 14px "Arial", Helvetica, Arial, sans-serif;
+}
+p{
+  padding: 0px;
+  font: "Arial"
+}
+h1{
+  padding: 10px;
+  font: "Arial"
+}
+a {
+  color: #00B7FF;
+}
